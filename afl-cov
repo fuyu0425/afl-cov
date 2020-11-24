@@ -919,7 +919,7 @@ def check_requirements(cargs):
     if (genhtml == None):
         genhtml = which(cargs.genhtml_path)
 
-    if (lcov == None or gcov == None or timoeut == None):
+    if (lcov == None or gcov == None or timeout == None):
         print "Required command not found :"
     else:
         if (genhtml == None and not cargs.disable_lcov_web):
