@@ -181,7 +181,8 @@ def process_afl_test_cases(cargs):
 
                 cov_paths['diff'] = "%s/%s" % \
                         (cov_paths['diff_dir'], os.path.basename(f))
-                id_range_update(f, cov_paths)
+                ### Modified by yufu, not need
+                # id_range_update(f, cov_paths)
 
                 ### execute the command to generate code coverage stats
                 ### for the current AFL test case file
@@ -314,11 +315,12 @@ def coverage_diff(cycle_num, fuzz_dir, cov_paths, afl_file, cov, cargs):
         a_file = cov_paths['id_file']
     delta_file = b_file = os.path.basename(afl_file)
 
-    if cargs.cover_corpus or cargs.coverage_at_exit:
-        a_file = 'id:%d...' % cov_paths['id_min']
-        b_file = 'id:%d...' % cov_paths['id_max']
-        delta_file = 'id:[%d-%d]...' % \
-                (cov_paths['id_min'], cov_paths['id_max'])
+    ### Modified: suppor for other fuzzers
+    # if cargs.cover_corpus or cargs.coverage_at_exit:
+    #     a_file = 'id:%d...' % cov_paths['id_min']
+    #     b_file = 'id:%d...' % cov_paths['id_max']
+    #     delta_file = 'id:[%d-%d]...' % \
+    #             (cov_paths['id_min'], cov_paths['id_max'])
 
     new_cov = extract_coverage(cov_paths['lcov_info_final'],
                                cov_paths['log_file'], cargs)
