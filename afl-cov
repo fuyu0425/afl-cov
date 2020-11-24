@@ -777,7 +777,7 @@ def import_fuzzing_dirs(cov_paths, cargs):
         for p in os.listdir(def_dir):
             fuzz_dir = "%s/%s" % (def_dir, p)
             if is_dir(fuzz_dir):
-                if is_dir("%s/%s" % (fuzz_dir, test_case_dir)):
+                if is_dir("%s/%s" % (fuzz_dir, cargs.test_case_dir)):
                     ### found an AFL fuzzing directory instance from
                     ### parallel AFL execution
                     if fuzz_dir not in cov_paths['dirs']:
