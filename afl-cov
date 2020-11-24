@@ -152,7 +152,7 @@ def process_afl_test_cases(cargs):
 
             for f in tmp_files:
                 if f not in afl_files:
-                    if os.is_file(f):  # skip directory
+                    if os.path.isfile(f):  # skip directory
                         afl_files.append(f)
                         new_files.append(f)
 
